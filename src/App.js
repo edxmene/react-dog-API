@@ -17,7 +17,8 @@ function App() {
   const [dog, setDog] = useState(initialDog);
   const [fetching, setFetching] = useState(true);
 
-  const getNewDog = (dogID) => {
+  const updateDog = (dogID) => {
+    setFetching(true);
     getDog(dogID).then(data => {
       const [dog] = data;
       let {url:img, breeds:[breed]} = dog;
@@ -37,13 +38,13 @@ function App() {
   }
 
   useEffect(() => {
-    getNewDog();
+    updateDog();
   }, []);
 
   return (
     <div className="app">
-      <Select getNewDog={getNewDog} setFetching={setFetching}/>
-      {fetching ? <Spinner /> : <Card dog={dog}/>}
+      <Select updateDog={updateDog}/>
+      {fetching ? <Spinner /> : <Card dog={dog} updateDog={updateDog}/>}
     </div>
   );
 }
