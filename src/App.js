@@ -31,6 +31,7 @@ function App() {
           name:'random'
         }
       }
+      console.log("Todo bien. ")
       const newDog = {
         img,
         breed

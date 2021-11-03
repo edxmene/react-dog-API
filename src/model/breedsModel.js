@@ -12,9 +12,9 @@ const getBreeds = async () => {
 const getDog = async (dogID) => {
     let url;
     if(dogID === 0 || dogID === undefined){
-        url = "https://api.thedogapi.com/v1/images/seaddrch";
+        url = "https://api.thedogapi.com/v1/images/search";
     }else {
-        url = `https://api.thedogapi.com/v1/images/search?breeddd_ids=${dogID}`;
+        url = `https://api.thedogapi.com/v1/images/search?breed_ids=${dogID}`;
     }
     const res = await fetch(url);
     if(!res.ok){
