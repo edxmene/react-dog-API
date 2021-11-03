@@ -1,6 +1,10 @@
 const getBreeds = async () => {
     const url = "https://api.thedogapi.com/v1/breeds";
     const res = await fetch(url);
+    if(!res.ok){
+        const {url,status, statusText} = res;
+        throw Error(`${status} ${statusText} in fetch ${url}`);
+    }
     const breeds = await res.json();
     return breeds;
 }
@@ -8,11 +12,15 @@ const getBreeds = async () => {
 const getDog = async (dogID) => {
     let url;
     if(dogID === 0 || dogID === undefined){
-        url = "https://api.thedogapi.com/v1/images/search";
+        url = "https://api.thedogapi.com/v1/images/seaddrch";
     }else {
-        url = `https://api.thedogapi.com/v1/images/search?breed_ids=${dogID}`;
+        url = `https://api.thedogapi.com/v1/images/search?breeddd_ids=${dogID}`;
     }
     const res = await fetch(url);
+    if(!res.ok){
+        const {url,status, statusText} = res;
+        throw Error(`${status} ${statusText} in fetch ${url}`);
+    }
     const dog = await res.json();
     return dog;
 }
