@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import {getBreeds} from '../model/breedsModel';
 import Error from './Error';
 
-const Select = ({updateDog,setFetching}) => {
+const Select = ({updateDog}) => {
     const [breeds, setBreeds] = useState([]);
     const [error, setError] = useState(null);
     useEffect(() => {
